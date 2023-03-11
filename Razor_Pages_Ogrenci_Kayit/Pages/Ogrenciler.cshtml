@@ -5,3 +5,48 @@
 }
 <h1>@ViewData["Title"]</h1>
 
+<div>
+    <row>
+        <a class="btn btn-danger" asp-page="./OgrenciKayit"> ÖĞRENCİ KAYIT</a>
+    </row>
+    <row>
+        <table class=" table">
+            <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Ad</th>
+                    <th scope="col">Soyad</th>
+                    <th scope="col">Kurs</th>
+                    <th scope="col">Öğrenci İşlem</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model.Ogrenciler != null)
+                {
+
+                    @foreach (var item in Model.Ogrenciler)
+                    {
+                        <tr>
+                            <td scope="col">@item.Id</td>
+                            <td scope="col">@item.Ad</td>
+                            <td scope="col">@item.Soyad</td>
+                            @foreach (var kurs in Model.Kurslar)
+                            {
+                              if (item.KursId==kurs.KursId)
+                                {
+                                <td scope="col">@kurs.KursAdi</td>
+                                    
+                                }          
+
+                            }
+                            <td>
+                                <a asp-page="./Duzenle" asp-route-id=@item.Id>Düzenle</a> |
+                                <a asp-page="./#" asp-route-id=@item.Id>Sil</a>
+                            </td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </row>
+</div>

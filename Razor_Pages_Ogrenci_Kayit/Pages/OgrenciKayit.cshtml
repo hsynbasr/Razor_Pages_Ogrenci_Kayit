@@ -1,0 +1,34 @@
+﻿@page
+@model Razor_Pages_Ogrenci_Kayit.Pages.OgrenciKayitModel
+@{
+}
+<h2>Öğrenci Kayıt</h2>
+<form method="post">
+
+    <div>
+        <row>
+            <div class="input-group mb-3 col-2">
+                <span class="input-group-text">Ad  </span>
+                <input asp-for="@Model.Ogrenci.Ad" type="text" class="form-control">
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text">Soyad</span>
+                <input asp-for="@Model.Ogrenci.Soyad" type="text" class="form-control">
+            </div>
+            <div>
+                <select class="form-select" name="selectedKursId">
+                    <option selected>Kurs Seçiniz</option>
+                    @if (Model.Kurslar!=null)
+                    {
+                        foreach (var item in Model.Kurslar)
+                        {
+                            <option value="@item.KursId">@item.KursAdi</option>
+                        }
+                    }
+
+                </select>
+            </div>
+        </row>
+    </div>
+    <input type="submit"  class="btn btn-danger mt-3" />
+</form>

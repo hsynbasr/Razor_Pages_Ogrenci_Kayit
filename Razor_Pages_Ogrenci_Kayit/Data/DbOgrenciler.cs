@@ -9,7 +9,7 @@ namespace Razor_Pages_Ogrenci_Kayit.Data
         public DbSet<Kurs> Kurs { get; set; }
         public DbOgrenciler(DbContextOptions<DbOgrenciler> options):base(options) 
         {
-
+            
         }
     }
 }
