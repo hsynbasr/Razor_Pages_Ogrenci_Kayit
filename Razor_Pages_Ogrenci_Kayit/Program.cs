@@ -1,9 +1,18 @@
+using Microsoft.EntityFrameworkCore;
+using Razor_Pages_Ogrenci_Kayit.Data;
+using Microsoft.Extensions.Configuration;
+
+
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
 
+builder.Services.AddDbContext<DbOgrenciler>(options =>
+        options.UseSqlServer(builder.Configuration.GetConnectionString("MyConnectionString")));
 var app = builder.Build();
+
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())

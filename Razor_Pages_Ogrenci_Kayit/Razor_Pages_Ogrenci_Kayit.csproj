@@ -13,5 +13,7 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
   </ItemGroup>
-
+	<!--<connectionStrings>
+		<add name="MyConnectionString" connectionString="(localdb)\MSSQLLocalDB;Initial Catalog=Ogrenciler;Integrated Security=True;" providerName="System.Data.SqlClient" />
+	</connectionStrings>-->
 </Project>
