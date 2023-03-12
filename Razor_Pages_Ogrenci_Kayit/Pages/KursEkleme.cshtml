@@ -1,0 +1,18 @@
+﻿@page
+@model Razor_Pages_Ogrenci_Kayit.Pages.KursEklemeModel
+@{
+}
+<h2>Kurs Kayıt</h2>
+<form method="post">
+
+    <div>
+        <row>
+            <div class="input-group mb-3 col-2">
+                <span class="input-group-text">Kurs Adı </span>
+                <input asp-for="@Model.Kurs.KursAdi" type="text" class="form-control">
+            </div>
+        </row>
+    </div>
+    <input type="submit" class="btn btn-danger mt-3" value="Ekle" />
+    <a class="btn btn-primary mt-3"href="./OgrenciKurslar">Geri</a>
+</form>

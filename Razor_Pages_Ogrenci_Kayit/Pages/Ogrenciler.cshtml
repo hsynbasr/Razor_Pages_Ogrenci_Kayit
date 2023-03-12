@@ -5,12 +5,12 @@
 }
 <h1>@ViewData["Title"]</h1>
 
-<div>
+<div class="container">
     <row>
-        <a class="btn btn-danger" asp-page="./OgrenciKayit"> ÖĞRENCİ KAYIT</a>
+        <a class="btn btn-danger mb-3" asp-page="./OgrenciKayit"> ÖĞRENCİ KAYIT</a>
     </row>
     <row>
-        <table class=" table">
+        <table class="table table-success table-striped">
             <thead>
                 <tr>
                     <th scope="col">Id</th>
@@ -32,16 +32,16 @@
                             <td scope="col">@item.Soyad</td>
                             @foreach (var kurs in Model.Kurslar)
                             {
-                              if (item.KursId==kurs.KursId)
+                                if (item.KursId == kurs.KursId)
                                 {
-                                <td scope="col">@kurs.KursAdi</td>
-                                    
-                                }          
+                                    <td scope="col">@kurs.KursAdi</td>
+
+                                }
 
                             }
                             <td>
                                 <a asp-page="./Duzenle" asp-route-id=@item.Id>Düzenle</a> |
-                                <a asp-page="./#" asp-route-id=@item.Id>Sil</a>
+                                <a asp-page="./Silme" asp-route-id=@item.Id>Sil</a>
                             </td>
                         </tr>
                     }
@@ -49,4 +49,5 @@
             </tbody>
         </table>
     </row>
+   
 </div>

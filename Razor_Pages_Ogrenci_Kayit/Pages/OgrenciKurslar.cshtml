@@ -1,0 +1,45 @@
+﻿@page
+@model Razor_Pages_Ogrenci_Kayit.Pages.OgrenciKurslarModel
+@{
+}
+
+<div class="container">
+    <row>
+        <a class="btn btn-danger mb-3" asp-page="./KursEkleme"> Kurs Ekle</a>
+    </row>
+    <row>
+        <table class="table table-success table-striped table-hover">
+            <thead>
+                <tr>
+                    <th style="text-align:center" scope="col">Id</th>
+                    <th style="text-align:center" scope="col">Kurs Adı</th>
+                    <th style="text-align:center" scope="col">Kayıtlı Öğrenci Sayısı</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model.Ogrenciler != null)
+                {
+
+                    @foreach (var item in Model.Kurslar)
+                    {
+                        int a = 0;
+                        @foreach (var o in Model.Ogrenciler)
+                        {
+                            @if (o.KursId == item.KursId)
+                            {
+                                a++;
+                            }
+                        }
+
+                        <tr>
+                            <td style="text-align:center" scope="col">@item.KursId</td>
+                            <td style="text-align:center" scope="col">@item.KursAdi</td>
+                            <td style="text-align:center" scope="col">@a </td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </row>
+
+</div>
